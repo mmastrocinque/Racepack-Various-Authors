@@ -3,9 +3,9 @@ This is an easy-to-install race package for Tha Pwned's version of the Warcraft-
 
 
 ## What does this package do? - And what does it contain?
-Installing this package on to your server will add 14 new races to your Warcraft-Source server.
-All of the 14 races are remastered/reworked versions of various authors' races. This is the first package of its kind. 
-The package features races created by some of the more known authors from the Warcraft-Source community such as; Jareth, Predz, Masteraviv, Iceefun, E.o.$, DoC, Kami and Stinkyfax.
+Installing this package on to your server will add 16 new races to your Warcraft-Source server.
+All of the 16 races are remastered/reworked versions of various authors' races. This is the first package of its kind. 
+The package features races created by some of the more known authors from the Warcraft-Source community such as; Predz, Masteraviv, Iceefun, E.o.$, DoC, Stinkyfax, Kami, Jareth, Revan & La Muerte.
 
 
 **List of races:**
@@ -17,8 +17,10 @@ The package features races created by some of the more known authors from the Wa
 - Human Enemy
 - Iksar Sorcerer
 - Killing Machine
+- Ninja
 - Light Dragon
 - Phantom
+- Potty The Plant
 - Son Goku
 - Spongebob Squarepants
 - The Kingston
