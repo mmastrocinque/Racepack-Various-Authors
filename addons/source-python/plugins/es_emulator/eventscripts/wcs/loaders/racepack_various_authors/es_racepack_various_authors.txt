@@ -22,6 +22,7 @@ block load
 	es_load wcs/tools/manifest/phantom
 	es_load wcs/tools/manifest/spongebob_squarepants
 	es_load wcs/tools/manifest/the_kingston
+	es_load wcs/tools/manifest/the_survivor
 }
 
 block unload
@@ -39,4 +40,5 @@ block unload
 	es_unload wcs/tools/manifest/phantom
 	es_unload wcs/tools/manifest/spongebob_squarepants
 	es_unload wcs/tools/manifest/the_kingston
+	es_load wcs/tools/manifest/the_survivor
 }
