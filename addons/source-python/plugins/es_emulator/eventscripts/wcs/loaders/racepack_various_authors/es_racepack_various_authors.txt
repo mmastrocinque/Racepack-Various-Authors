@@ -18,8 +18,10 @@ block load
 	es_load wcs/tools/manifest/human_enemy
 	es_load wcs/tools/manifest/iksar_sorcerer
 	es_load wcs/tools/manifest/killing_machine
+	es_load wcs/tools/manifest/ninja
 	es_load wcs/tools/manifest/light_dragon
 	es_load wcs/tools/manifest/phantom
+	es_load wcs/tools/manifest/plant
 	es_load wcs/tools/manifest/spongebob_squarepants
 	es_load wcs/tools/manifest/the_kingston
 	es_load wcs/tools/manifest/the_survivor
@@ -36,8 +38,10 @@ block unload
 	es_unload wcs/tools/manifest/human_enemy
 	es_unload wcs/tools/manifest/iksar_sorcerer
 	es_unload wcs/tools/manifest/killing_machine
+	es_unload wcs/tools/manifest/ninja
 	es_unload wcs/tools/manifest/light_dragon
 	es_unload wcs/tools/manifest/phantom
+	es_unload wcs/tools/manifest/plant
 	es_unload wcs/tools/manifest/spongebob_squarepants
 	es_unload wcs/tools/manifest/the_kingston
 	es_load wcs/tools/manifest/the_survivor
