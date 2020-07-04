@@ -42,7 +42,6 @@ The package features races created by some of the more known authors from the Wa
 
 
 ## Future development plans
-- [ ] Change the method of the logging to be put in source-python's logs.
 - [ ] Fix any bugs/issues that gets reported.
 
 
