@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Spawn (START)
+		wcs_log -1 [Race]: Phantom - [Block] Spawn (START)
 	}
 	ifx false(wcs_falldamage_compensation) do
 	{
@@ -15,7 +15,7 @@ block spawn
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Spawn (END)
+		wcs_log -1 [Race]: Phantom - [Block] Spawn (END)
 	}
 }
 
@@ -23,7 +23,7 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] OnChange (START)
+		wcs_log -1 [Race]: Phantom - [Block] OnChange (START)
 	}
 	es wcsgroup set phantom server_var(wcs_userid) 0
 	ifx false(wcs_falldamage_compensation) do
@@ -32,7 +32,7 @@ block onchange
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] OnChange (END)
+		wcs_log -1 [Race]: Phantom - [Block] OnChange (END)
 	}
 }
 
@@ -40,7 +40,7 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Death (START)
+		wcs_log -1 [Race]: Phantom - [Block] Death (START)
 	}
 	es wcsgroup set phantom event_var(userid) 0
 	ifx false(wcs_falldamage_compensation) do
@@ -49,7 +49,7 @@ block death
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Death (END)
+		wcs_log -1 [Race]: Phantom - [Block] Death (END)
 	}
 }
 
@@ -57,7 +57,7 @@ block phantom
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Phantom - [Block] Skill: 1 (START)
 	}
 	es wcsgroup set phantom event_var(userid) 1
 	ifx false(wcs_falldamage_compensation) do
@@ -73,7 +73,7 @@ block phantom
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Phantom - [Block] Skill: 1 (END)
 	}
 }
 
@@ -84,7 +84,7 @@ event player_falldamage
 	{
 		ifx true(wcs_race_debugging) do
 		{
-			es_log [Race]: Phantom - [Block] Event Player_Falldamage (START)
+			wcs_log -1 [Race]: Phantom - [Block] Event Player_Falldamage (START)
 		}
 		es_playsound event_var(userid) ambient/energy/force_field_loop1.wav 1
 		es_delayed .9 es_stopsound event_var(userid) ambient/energy/force_field_loop1.wav
@@ -108,7 +108,7 @@ event player_falldamage
 		es_delayed .7 est_effect 3 #a 0 sprites/physring1.vmt server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) .1 15 1 155 155 155 255
 		ifx true(wcs_race_debugging) do
 		{
-			es_log [Race]: Phantom - [Block] Event Player_Falldamage (END)
+			wcs_log -1 [Race]: Phantom - [Block] Event Player_Falldamage (END)
 		}
 	}
 }
@@ -120,12 +120,12 @@ event player_duck
 	{
 		ifx true(wcs_race_debugging) do
 		{
-			es_log [Race]: Phantom - [Block] Event Player_Duck (START)
+			wcs_log -1 [Race]: Phantom - [Block] Event Player_Duck (START)
 		}
 		es wcs_color event_var(userid) 255 255 255 40 0
 		ifx true(wcs_race_debugging) do
 		{
-			es_log [Race]: Phantom - [Block] Event Player_Duck (END)
+			wcs_log -1 [Race]: Phantom - [Block] Event Player_Duck (END)
 		}
 	}
 }
@@ -137,12 +137,12 @@ event player_unduck
 	{
 		ifx true(wcs_race_debugging) do
 		{
-			es_log [Race]: Phantom - [Block] Event Player_Unduck (START)
+			wcs_log -1 [Race]: Phantom - [Block] Event Player_Unduck (START)
 		}
 		es wcs_color event_var(userid) 255 255 255 255 0
 		ifx true(wcs_race_debugging) do
 		{
-			es_log [Race]: Phantom - [Block] Event Player_Unduck (END)
+			wcs_log -1 [Race]: Phantom - [Block] Event Player_Unduck (END)
 		}
 	}
 }
@@ -151,7 +151,7 @@ block sbc
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Phantom - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -187,7 +187,7 @@ block sbc
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Phantom - [Block] Skill: 2 (END)
 	}
 }
 
@@ -195,7 +195,7 @@ block illusion
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Phantom - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -213,7 +213,7 @@ block illusion
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Phantom - [Block] Skill: 3 (END)
 	}
 }
 
@@ -221,7 +221,7 @@ block tele
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Phantom - [Block] Skill: 4 (START)
 	}
     es_xmath wcs_smokestack_counter + 1
 	es_give server_var(wcs_userid) env_smokestack
@@ -351,6 +351,6 @@ block tele
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Phantom - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Phantom - [Block] Skill: 4 (END)
 	}
 }

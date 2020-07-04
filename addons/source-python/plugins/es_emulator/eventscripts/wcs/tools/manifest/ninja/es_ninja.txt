@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Spawn (START)
+		wcs_log -1 [Race]: Ninja - [Block] Spawn (START)
 	}
 	if (event_var(es_userdead) = 0) do
 	{
@@ -28,7 +28,7 @@ block spawn
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Spawn (END)
+		wcs_log -1 [Race]: Ninja - [Block] Spawn (END)
 	}
 }
 
@@ -36,13 +36,13 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] OnChange (START)
+		wcs_log -1 [Race]: Ninja - [Block] OnChange (START)
 	}
 	es wcsgroup set evasion server_var(wcs_userid) 0
 	es wcsgroup set evasion_chance server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] OnChange (END)
+		wcs_log -1 [Race]: Ninja - [Block] OnChange (END)
 	}
 }
 
@@ -50,7 +50,7 @@ block speed
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 1 (START)
 	}
 	if (event_var(es_userdead) = 0) do
 	{
@@ -69,7 +69,7 @@ block speed
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 1 (END)
 	}
 }		
 
@@ -77,7 +77,7 @@ block damage
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 2 (START)
 	}
 	if (event_var(weapon) == knife) do
 	{
@@ -102,7 +102,7 @@ block damage
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 2 (END)
 	}
 }
 
@@ -110,7 +110,7 @@ block evasion
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 3 (START)
 	}
 	if (event_var(es_userdead) = 0) do
 	{
@@ -120,7 +120,7 @@ block evasion
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 3 (END)
 	}
 }
 
@@ -128,7 +128,7 @@ block ninjastar
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 4 (START)
 	}
 	es_xset wcs_execute_ultimate 0
 	es_getplayerteam wcs_team server_var(wcs_userid)
@@ -176,7 +176,7 @@ block ninjastar
 	if (server_var(wcs_ultinotexec) = 1) then es wcs_cancelulti server_var(wcs_userid)
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 4 (END)
 	}
 }
 
@@ -184,7 +184,7 @@ block ninjastar_path
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 4 (CHECKS START)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 4 (CHECKS START)
 	}
 	es_exists ex userid server_var(wcs_targetid)
 	if (server_var(ex) = 1) do
@@ -231,7 +231,7 @@ block ninjastar_path
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 4 (CHECKS END)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 4 (CHECKS END)
 	}
 }
 
@@ -239,7 +239,7 @@ block ninjastar_final
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 4 (EXECUTED START)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 4 (EXECUTED START)
 	}
 	es wcs_shake server_var(wcs_targetid) 5 11 3
 	es_xrand wcs_rand 1 4
@@ -262,6 +262,6 @@ block ninjastar_final
 	es damage server_var(wcs_targetid) server_var(wcs_dmg) 1 server_var(wcs_userid)
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Ninja - [Block] Skill: 4 (EXECUTED END)
+		wcs_log -1 [Race]: Ninja - [Block] Skill: 4 (EXECUTED END)
 	}
 }

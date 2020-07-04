@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Spawn (START)
+		wcs_log -1 [Race]: Faith - [Block] Spawn (START)
 	}
 	es wcs_removeweapon event_var(userid) 1
 	es wcs_removeweapon event_var(userid) 2
@@ -23,7 +23,7 @@ block spawn
 	es_delayed .1 es_give event_var(userid) weapon_knife
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Spawn (END)
+		wcs_log -1 [Race]: Faith - [Block] Spawn (END)
 	}
 }
 
@@ -31,13 +31,13 @@ block longjump
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Faith - [Block] Skill: 1 (START)
 	}
 	es wcs_setfx longjump event_var(userid) + server_var(wcs_multiplier) 0
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Longjump - You have increased jump length
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Faith - [Block] Skill: 1 (END)
 	}
 }
 
@@ -45,7 +45,7 @@ block speed_when_struck
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Faith - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= 80) do
 	{
@@ -70,7 +70,7 @@ block speed_when_struck
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Faith - [Block] Skill: 2 (END)
 	}
 }
 
@@ -78,7 +78,7 @@ block freeze_when_struck
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Faith - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -110,7 +110,7 @@ block freeze_when_struck
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Faith - [Block] Skill: 3 (END)
 	}
 }
 
@@ -118,14 +118,14 @@ block levitation
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Faith - [Block] Skill: 4 (START)
 	}
 	es_delayed .2 wcs_setfx gravity event_var(userid) = server_var(wcs_gravity) 0
 	es_xmath wcs_gravity * 100
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Levitation - Reduced your gravity to server_var(wcs_gravity)%
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Faith - [Block] Skill: 4 (END)
 	}
 }
 
@@ -133,7 +133,7 @@ block speed_temporary
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Skill: 5 (START)
+		wcs_log -1 [Race]: Faith - [Block] Skill: 5 (START)
 	}
 	es wcs_setfx speed server_var(wcs_userid) + .65 7
 	es wcs_centertell server_var(wcs_userid) You're running faster for 7 seconds!
@@ -149,6 +149,6 @@ block speed_temporary
 	es est_effect 7 #a 0 sprites/smoke.vmt server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 25 10
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Faith - [Block] Skill: 5 (END)
+		wcs_log -1 [Race]: Faith - [Block] Skill: 5 (END)
 	}
 }

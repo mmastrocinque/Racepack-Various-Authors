@@ -7,7 +7,7 @@ block speed
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Human Enemy - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Human Enemy - [Block] Skill: 1 (START)
 	}
 	if (event_var(es_userdead) = 0) do
 	{
@@ -30,7 +30,7 @@ block speed
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Human Enemy - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Human Enemy - [Block] Skill: 1 (END)
 	}
 }
 
@@ -38,7 +38,7 @@ block freeze
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Human Enemy - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Human Enemy - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -129,7 +129,7 @@ block freeze
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Human Enemy - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Human Enemy - [Block] Skill: 2 (END)
 	}
 }
 
@@ -137,7 +137,7 @@ block fire_damage
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Human Enemy - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Human Enemy - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -193,7 +193,7 @@ block fire_damage
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Human Enemy - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Human Enemy - [Block] Skill: 3 (END)
 	}
 }
 
@@ -201,7 +201,7 @@ block teleport
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Human Enemy - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Human Enemy - [Block] Skill: 4 (START)
 	}
 	es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 server_var(wcs_userid)
 	es_xmath wcs_z1 + 10
@@ -321,6 +321,6 @@ block teleport
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Human Enemy - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Human Enemy - [Block] Skill: 4 (END)
 	}
 }

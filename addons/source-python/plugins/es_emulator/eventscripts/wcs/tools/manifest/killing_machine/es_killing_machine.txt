@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Spawn (START)
+		wcs_log -1 [Race]: Killing Machine - [Block] Spawn (START)
 	}
 	es wcsgroup get killing_evading wcs_tmp9 event_var(userid)
 	es wcsgroup set evasion event_var(userid) 1
@@ -21,7 +21,7 @@ block spawn
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Adrenaline - Increased your speed by server_var(wcs_tmp8)%
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Spawn (END)
+		wcs_log -1 [Race]: Killing Machine - [Block] Spawn (END)
 	}
 }
 
@@ -29,13 +29,13 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Death (START)
+		wcs_log -1 [Race]: Killing Machine - [Block] Death (START)
 	}
 	es wcsgroup set evasion event_var(userid) 0
 	es wcsgroup set evasion_chance event_var(userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Death (END)
+		wcs_log -1 [Race]: Killing Machine - [Block] Death (END)
 	}
 }
 
@@ -43,13 +43,13 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] OnChange (START)
+		wcs_log -1 [Race]: Killing Machine - [Block] OnChange (START)
 	}
 	es wcsgroup set evasion server_var(wcs_userid) 0
 	es wcsgroup set evasion_chance server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] OnChange (END)
+		wcs_log -1 [Race]: Killing Machine - [Block] OnChange (END)
 	}
 }
 
@@ -57,7 +57,7 @@ block damage_increasing
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Skill: 1 (START)
+		wcs_log -1 [Race]: Killing Machine - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -91,7 +91,7 @@ block damage_increasing
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Skill: 1 (END)
+		wcs_log -1 [Race]: Killing Machine - [Block] Skill: 1 (END)
 	}
 }
 
@@ -99,7 +99,7 @@ block evasion_increasing
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Skill: 2 (START)
+		wcs_log -1 [Race]: Killing Machine - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -129,7 +129,7 @@ block evasion_increasing
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Skill: 2 (END)
+		wcs_log -1 [Race]: Killing Machine - [Block] Skill: 2 (END)
 	}
 }
 
@@ -137,7 +137,7 @@ block speed_increasing
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Skill: 3 (START)
+		wcs_log -1 [Race]: Killing Machine - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -169,7 +169,7 @@ block speed_increasing
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Skill: 3 (END)
+		wcs_log -1 [Race]: Killing Machine - [Block] Skill: 3 (END)
 	}
 }
 
@@ -177,7 +177,7 @@ block invisibility_temporary
 {
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Skill: 4 (START)
+		wcs_log -1 [Race]: Killing Machine - [Block] Skill: 4 (START)
 	}
 	es wcs_color server_var(wcs_userid) 255 255 255 50 0
 	es_delayed 2 wcs_color server_var(wcs_userid) 255 255 255 255 0
@@ -187,6 +187,6 @@ block invisibility_temporary
 	es est_effect 10 #a 0 sprites/bluelight1.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) 60 70 3 30 100 0 255 100 100 255 10
 	ifx true(wcs_race_debugging) do
 	{
-		es_log [Race]: Killing Machine - [Block] Skill: 4 (END)
+		wcs_log -1 [Race]: Killing Machine - [Block] Skill: 4 (END)
 	}
 }
