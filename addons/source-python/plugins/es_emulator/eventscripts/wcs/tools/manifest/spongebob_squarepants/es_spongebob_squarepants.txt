@@ -7,12 +7,12 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Spongebob Squarepants - [Block] Spawn (START)
+		wcs_log  [Race]: Spongebob Squarepants - [Block] Spawn (START)
 	}
 	es_delayed .5 wcs_color event_var(userid) 255 255 0 255 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Spongebob Squarepants - [Block] Spawn (END)
+		wcs_log  [Race]: Spongebob Squarepants - [Block] Spawn (END)
 	}
 }
 
@@ -20,7 +20,7 @@ block damage
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Spongebob Squarepants - [Block] Skill: 1 (START)
+		wcs_log  [Race]: Spongebob Squarepants - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= 12) do
 	{
@@ -39,7 +39,7 @@ block damage
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Spongebob Squarepants - [Block] Skill: 1 (END)
+		wcs_log  [Race]: Spongebob Squarepants - [Block] Skill: 1 (END)
 	}
 }
 
@@ -47,7 +47,7 @@ block push
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Spongebob Squarepants - [Block] Skill: 2 (START)
+		wcs_log  [Race]: Spongebob Squarepants - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -68,7 +68,7 @@ block push
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Spongebob Squarepants - [Block] Skill: 2 (END)
+		wcs_log  [Race]: Spongebob Squarepants - [Block] Skill: 2 (END)
 	}
 }
 
@@ -76,7 +76,7 @@ block speed_grav
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Spongebob Squarepants - [Block] Skill: 3 (START)
+		wcs_log  [Race]: Spongebob Squarepants - [Block] Skill: 3 (START)
 	}
 	es wcs_setfx speed event_var(userid) = server_var(wcs_speed) 0
 	es_delayed .2 wcs_setfx gravity event_var(userid) = server_var(wcs_gravity) 0
@@ -85,7 +85,7 @@ block speed_grav
 	es est_effect 10 #a 0 sprites/hydragutbeam.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) 20 150 2 120 100 1 255 255 0 255 5
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Spongebob Squarepants - [Block] Skill: 3 (END)
+		wcs_log  [Race]: Spongebob Squarepants - [Block] Skill: 3 (END)
 	}
 }
 
@@ -93,7 +93,7 @@ block godmode_push
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Spongebob Squarepants - [Block] Skill: 4 (START)
+		wcs_log  [Race]: Spongebob Squarepants - [Block] Skill: 4 (START)
 	}
 	if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
 	{
@@ -130,6 +130,6 @@ block godmode_push
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Spongebob Squarepants - [Block] Skill: 4 (END)
+		wcs_log  [Race]: Spongebob Squarepants - [Block] Skill: 4 (END)
 	}
 }

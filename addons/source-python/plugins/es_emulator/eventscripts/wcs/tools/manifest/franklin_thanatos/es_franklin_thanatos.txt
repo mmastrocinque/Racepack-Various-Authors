@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Spawn (START)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Spawn (START)
 	}
 	es wcs_removeweapon event_var(userid) 1
 	es wcs_removeweapon event_var(userid) 2
@@ -27,7 +27,7 @@ block spawn
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Franklin Thanatos - You received your golden deagle.
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Spawn (END)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Spawn (END)
 	}
 }
 
@@ -35,7 +35,7 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Death (START)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Death (START)
 	}
 	es wcsgroup get medalofhonor wcs_tmp3 event_var(userid)
 	if (server_var(wcs_tmp3) == 1) do
@@ -57,7 +57,7 @@ block death
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Death (END)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Death (END)
 	}
 }
 
@@ -65,7 +65,7 @@ block medalofhonor
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 1 (START)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -82,7 +82,7 @@ block medalofhonor
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 1 (END)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 1 (END)
 	}
 }
 
@@ -90,7 +90,7 @@ block golden_deagle
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 2 (START)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -110,7 +110,7 @@ block golden_deagle
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 2 (END)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 2 (END)
 	}
 }
 
@@ -118,7 +118,7 @@ block laststand
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 3 (START)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 3 (START)
 	}
 	if (event_var(es_attackerdead) = 0) do
 	{
@@ -137,7 +137,7 @@ block laststand
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 3 (END)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 3 (END)
 	}
 }
 
@@ -145,7 +145,7 @@ block bomb_teamhealth
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 4 (START)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 4 (START)
 	}
 	es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 server_var(wcs_userid)
 	es_xmath wcs_z1 + 35
@@ -217,7 +217,7 @@ block bomb_teamhealth
 	if (server_var(wcs_ultinotexec) = 1) then es wcs_cancelulti server_var(wcs_userid)
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 4 (END)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 4 (END)
 	}
 }
 
@@ -225,7 +225,7 @@ block wcs_ulti_suicide_thanatos_checks
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 4 (CHECKS START)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 4 (CHECKS START)
 	}
 	es_exists ex userid server_var(wcs_targetid)
 	if (server_var(ex) = 1) do
@@ -272,7 +272,7 @@ block wcs_ulti_suicide_thanatos_checks
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 4 (CHECKS END)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 4 (CHECKS END)
 	}
 }
 
@@ -280,7 +280,7 @@ block bomb_teamhealth_final
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 4 (EXECUTED START)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 4 (EXECUTED START)
 	}
 	es wcs_centertell server_var(wcs_targetid) You took server_var(wcs_magnitude) damage from an explosion
 	es_xrand wcs_rand 1 3
@@ -299,7 +299,7 @@ block bomb_teamhealth_final
 	es damage server_var(wcs_targetid) server_var(wcs_magnitude) 1 server_var(wcs_userid)
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 4 (EXECUTED END)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 4 (EXECUTED END)
 	}
 }
 	
@@ -307,12 +307,12 @@ block bomb_teamhealth_exe
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 4 (BOMB_TEAMHEALTH_EXE EXECUTED START)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 4 (BOMB_TEAMHEALTH_EXE EXECUTED START)
 	}
 	es wcs_setfx health server_var(wcs_targetid_two) + server_var(wcs_addhealth) 0
 	es_tell server_var(wcs_targetid_two) #multi #green [WCS]: #lightgreen Sacrifice - Franklin Thanatos healed you for server_var(wcs_addhealth) health
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Franklin Thanatos - [Block] Skill: 4 (BOMB_TEAMHEALTH_EXE EXECUTED END)
+		wcs_log  [Race]: Franklin Thanatos - [Block] Skill: 4 (BOMB_TEAMHEALTH_EXE EXECUTED END)
 	}
 }

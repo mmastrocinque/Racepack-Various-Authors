@@ -7,13 +7,13 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Spawn (START)
+		wcs_log  [Race]: Flame Dragon - [Block] Spawn (START)
 	}
 	es wcsgroup set evasion event_var(userid) 0
 	es wcsgroup set evasion_chance event_var(userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Spawn (END)
+		wcs_log  [Race]: Flame Dragon - [Block] Spawn (END)
 	}
 }
 
@@ -21,13 +21,13 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] OnChange (START)
+		wcs_log  [Race]: Flame Dragon - [Block] OnChange (START)
 	}
 	es wcsgroup set evasion server_var(wcs_userid) 0
 	es wcsgroup set evasion_chance server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] OnChange (END)
+		wcs_log  [Race]: Flame Dragon - [Block] OnChange (END)
 	}
 }
 
@@ -35,7 +35,7 @@ block damage
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Skill: 1 (START)
+		wcs_log  [Race]: Flame Dragon - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= 35) do
 	{
@@ -97,7 +97,7 @@ block damage
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Skill: 1 (END)
+		wcs_log  [Race]: Flame Dragon - [Block] Skill: 1 (END)
 	}
 }
 
@@ -105,7 +105,7 @@ block slow
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Skill: 2 (START)
+		wcs_log  [Race]: Flame Dragon - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -188,7 +188,7 @@ block slow
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Skill: 2 (END)
+		wcs_log  [Race]: Flame Dragon - [Block] Skill: 2 (END)
 	}
 }
 
@@ -196,14 +196,14 @@ block evade
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Skill: 3 (START)
+		wcs_log  [Race]: Flame Dragon - [Block] Skill: 3 (START)
 	}
 	es wcsgroup set evasion event_var(userid) 1
 	es wcsgroup set evasion_chance event_var(userid) server_var(wcs_chance)
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Evasion - Gives you server_var(wcs_chance)% chance to dodge incoming attacks
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Skill: 3 (END)
+		wcs_log  [Race]: Flame Dragon - [Block] Skill: 3 (END)
 	}
 }
 
@@ -211,7 +211,7 @@ block health
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Skill: 4 (START)
+		wcs_log  [Race]: Flame Dragon - [Block] Skill: 4 (START)
 	}
 	es wcs_setfx health event_var(userid) + server_var(wcs_addhealth) 0
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Health - You received more health!
@@ -258,7 +258,7 @@ block health
 	es est_effect 10 #a 0 sprites/lgtning.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) 90 100 2 10 0 5 255 69 0 255 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Skill: 4 (END)
+		wcs_log  [Race]: Flame Dragon - [Block] Skill: 4 (END)
 	}
 }
 
@@ -266,7 +266,7 @@ block teleport
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Skill: 5 (START)
+		wcs_log  [Race]: Flame Dragon - [Block] Skill: 5 (START)
 	}
 	es_xset wcs_range 1400
 	es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 event_var(userid)
@@ -422,6 +422,6 @@ block teleport
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Flame Dragon - [Block] Skill: 5 (END)
+		wcs_log  [Race]: Flame Dragon - [Block] Skill: 5 (END)
 	}
 }

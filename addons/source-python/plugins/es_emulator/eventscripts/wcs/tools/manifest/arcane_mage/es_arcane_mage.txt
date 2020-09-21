@@ -7,13 +7,13 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Arcane Mage - [Block] Spawn (START)
+		wcs_log  [Race]: Arcane Mage - [Block] Spawn (START)
 	}
 	es wcsgroup get arcanepower wcs_blue event_var(userid)
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Arcane power - You have server_var(wcs_blue) remaining arcane power
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Arcane Mage - [Block] Spawn (END)
+		wcs_log  [Race]: Arcane Mage - [Block] Spawn (END)
 	}
 }
 
@@ -21,7 +21,7 @@ block aura
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Arcane Mage - [Block] Skill: 1 (START)
+		wcs_log  [Race]: Arcane Mage - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -41,7 +41,7 @@ block aura
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Arcane Mage - [Block] Skill: 1 (END)
+		wcs_log  [Race]: Arcane Mage - [Block] Skill: 1 (END)
 	}
 }
 
@@ -49,7 +49,7 @@ block bolt
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Arcane Mage - [Block] Skill: 2 (START)
+		wcs_log  [Race]: Arcane Mage - [Block] Skill: 2 (START)
 	}
 	if (event_var(es_userdead) = 0) do
 	{
@@ -76,7 +76,7 @@ block bolt
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Arcane Mage - [Block] Skill: 2 (END)
+		wcs_log  [Race]: Arcane Mage - [Block] Skill: 2 (END)
 	}
 }
 
@@ -84,7 +84,7 @@ block revive
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Arcane Mage - [Block] Skill: 3 (START)
+		wcs_log  [Race]: Arcane Mage - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -112,7 +112,7 @@ block revive
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Arcane Mage - [Block] Skill: 3 (END)
+		wcs_log  [Race]: Arcane Mage - [Block] Skill: 3 (END)
 	}
 }
 
@@ -120,7 +120,7 @@ block torrent
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Arcane Mage - [Block] Skill: 4 (START)
+		wcs_log  [Race]: Arcane Mage - [Block] Skill: 4 (START)
 	}
 	if (server_var(wcs_dice4) <= server_var(wcs_chance)) do
 	{
@@ -164,6 +164,6 @@ block torrent
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Arcane Mage - [Block] Skill: 4 (END)
+		wcs_log  [Race]: Arcane Mage - [Block] Skill: 4 (END)
 	}
 }

@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Spawn (START)
+		wcs_log  [Race]: Blue Mage - [Block] Spawn (START)
 	}
 	es wcsgroup set evasion event_var(userid) 0
 	es wcsgroup set evasion_chance event_var(userid) 0
@@ -15,7 +15,7 @@ block spawn
 	es_delayed .5 wcs_color event_var(userid) 0 0 160 240 1
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Spawn (END)
+		wcs_log  [Race]: Blue Mage - [Block] Spawn (END)
 	}
 }
 
@@ -23,14 +23,14 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Death (START)
+		wcs_log  [Race]: Blue Mage - [Block] Death (START)
 	}
 	es wcsgroup set evasion event_var(userid) 0
 	es wcsgroup set evasion_chance event_var(userid) 0
 	es wcsgroup set ulti_immunity event_var(userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Death (END)
+		wcs_log  [Race]: Blue Mage - [Block] Death (END)
 	}
 }
 
@@ -38,14 +38,14 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] OnChange (START)
+		wcs_log  [Race]: Blue Mage - [Block] OnChange (START)
 	}
 	es wcsgroup set evasion server_var(wcs_userid) 0
 	es wcsgroup set evasion_chance server_var(wcs_userid) 0
 	es wcsgroup set ulti_immunity server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] OnChange (END)
+		wcs_log  [Race]: Blue Mage - [Block] OnChange (END)
 	}
 }
 
@@ -53,7 +53,7 @@ block aura
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Skill: 1 (START)
+		wcs_log  [Race]: Blue Mage - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -87,7 +87,7 @@ block aura
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Skill: 1 (END)
+		wcs_log  [Race]: Blue Mage - [Block] Skill: 1 (END)
 	}
 }
 
@@ -95,7 +95,7 @@ block immunity
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Skill: 2 (START)
+		wcs_log  [Race]: Blue Mage - [Block] Skill: 2 (START)
 	}
 	if (server_var(wcs_dice2) <= server_var(wcs_chance)) do
 	{
@@ -104,7 +104,7 @@ block immunity
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Skill: 2 (END)
+		wcs_log  [Race]: Blue Mage - [Block] Skill: 2 (END)
 	}
 }
 
@@ -112,7 +112,7 @@ block strike
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Skill: 3 (START)
+		wcs_log  [Race]: Blue Mage - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= 15) do 
 	{
@@ -142,7 +142,7 @@ block strike
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Skill: 3 (END)
+		wcs_log  [Race]: Blue Mage - [Block] Skill: 3 (END)
 	}
 }
 
@@ -150,7 +150,7 @@ block shield
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Skill: 4 (START)
+		wcs_log  [Race]: Blue Mage - [Block] Skill: 4 (START)
 	}
 	es wcsgroup set evasion server_var(wcs_userid) 1
 	es wcsgroup set evasion_chance server_var(wcs_userid) 85
@@ -168,6 +168,6 @@ block shield
 	es est_effect 11 #a 0 sprites/strider_blackball.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) server_var(wcs_duration) 1.5 255
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Blue Mage - [Block] Skill: 4 (END)
+		wcs_log  [Race]: Blue Mage - [Block] Skill: 4 (END)
 	}
 }

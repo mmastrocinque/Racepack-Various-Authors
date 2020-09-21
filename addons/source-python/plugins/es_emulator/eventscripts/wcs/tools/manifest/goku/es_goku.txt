@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Spawn (START)
+		wcs_log  [Race]: Son Goku - [Block] Spawn (START)
 	}
 	es wcs_removeweapon event_var(userid) 2
 	es_getgame wcs_gamecheck
@@ -23,7 +23,7 @@ block spawn
 	es wcsgroup set sajayin event_var(userid) 1
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Spawn (END)
+		wcs_log  [Race]: Son Goku - [Block] Spawn (END)
 	}
 }
 
@@ -31,13 +31,13 @@ block death
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Death (START)
+		wcs_log  [Race]: Son Goku - [Block] Death (START)
 	}
 	es wcsgroup set sajayin event_var(userid) 0
 	es wcsgroup set sajayin_fire event_var(userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Death (END)
+		wcs_log  [Race]: Son Goku - [Block] Death (END)
 	}
 }
 
@@ -45,13 +45,13 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] OnChange (START)
+		wcs_log  [Race]: Son Goku - [Block] OnChange (START)
 	}
 	es wcsgroup set sajayin server_var(wcs_userid) 0
 	es wcsgroup set sajayin_fire server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] OnChange (END)
+		wcs_log  [Race]: Son Goku - [Block] OnChange (END)
 	}
 }
 
@@ -59,7 +59,7 @@ block sensu
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Skill: 1 (START)
+		wcs_log  [Race]: Son Goku - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -74,7 +74,7 @@ block sensu
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Skill: 1 (END)
+		wcs_log  [Race]: Son Goku - [Block] Skill: 1 (END)
 	}
 }
 
@@ -82,7 +82,7 @@ block sajayin
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Skill: 2 (START)
+		wcs_log  [Race]: Son Goku - [Block] Skill: 2 (START)
 	}
 	es wcsgroup get sajayin wcs_tmp server_var(wcs_userid)
 	if (server_var(wcs_tmp) = 1) do
@@ -111,7 +111,7 @@ block sajayin
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Skill: 2 (END)
+		wcs_log  [Race]: Son Goku - [Block] Skill: 2 (END)
 	}
 }
 
@@ -119,7 +119,7 @@ block kamehameha
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Skill: 3 (START)
+		wcs_log  [Race]: Son Goku - [Block] Skill: 3 (START)
 	}
 	if (server_var(wcs_dice3) <= server_var(wcs_chance)) do
 	{
@@ -142,7 +142,7 @@ block kamehameha
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Skill: 3 (END)
+		wcs_log  [Race]: Son Goku - [Block] Skill: 3 (END)
 	}
 }
   
@@ -150,7 +150,7 @@ block gendidama
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Skill: 4 (START)
+		wcs_log  [Race]: Son Goku - [Block] Skill: 4 (START)
 	}
 	es wcs_setfx attackspeed server_var(wcs_userid) = 4 server_var(wcs_duration)
 	es wcsgroup set sajayin_fire server_var(wcs_userid) 1
@@ -203,7 +203,7 @@ block gendidama
 	es est_effect 11 #a 0 effects/redflare_v2.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) .25 5 255
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log -1 [Race]: Son Goku - [Block] Skill: 4 (END)
+		wcs_log  [Race]: Son Goku - [Block] Skill: 4 (END)
 	}
 }
 
@@ -214,7 +214,7 @@ event weapon_fire
 	{
 		ifx true(wcs_race_debugging) do
 		{
-			wcs_log -1 [Race]: Son Goku - [Block] Event Weapon_Fire (START)
+			wcs_log  [Race]: Son Goku - [Block] Event Weapon_Fire (START)
 		}
 		es wcs_setfx 1stclip event_var(userid) + 1 0
 		es playerget weaponindex wcs_tmp9 event_var(userid) event_var(weapon)
@@ -224,7 +224,7 @@ event weapon_fire
 		es_setplayerprop event_var(userid) "CCSPlayer.cslocaldata.m_iShotsFired" -1
 		ifx true(wcs_race_debugging) do
 		{
-			wcs_log -1 [Race]: Son Goku - [Block] Event Weapon_Fire (END)
+			wcs_log  [Race]: Son Goku - [Block] Event Weapon_Fire (END)
 		}
 	}
 }
@@ -236,7 +236,7 @@ event bullet_impact
 	{
 		ifx true(wcs_race_debugging) do
 		{
-			wcs_log -1 [Race]: Son Goku - [Block] Event Bullet_Impact (START)
+			wcs_log  [Race]: Son Goku - [Block] Event Bullet_Impact (START)
 		}
 		es_getgame wcs_gamecheck
 		if ("Counter-Strike: Source" in server_var(wcs_gamecheck)) do
@@ -256,7 +256,7 @@ event bullet_impact
 		es est_effect 11 #a 0 sprites/redglow1.vmt server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 1 1 255
 		ifx true(wcs_race_debugging) do
 		{
-			wcs_log -1 [Race]: Son Goku - [Block] Event Bullet_Impact (END)
+			wcs_log  [Race]: Son Goku - [Block] Event Bullet_Impact (END)
 		}
 	}
 }
