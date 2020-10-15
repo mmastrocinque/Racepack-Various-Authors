@@ -99,9 +99,6 @@ block revive
 				es wcs_centertell event_var(userid) You'll be revived in your spawn in 2 seconds
 				es_delayed 2 es_emitsound player event_var(userid) wcs/resurrect.wav 1.0 0.3
 				es_delayed 2 wcs_spawn event_var(userid) 1
-				es_delayed 2.6 wcs_setfx speed event_var(userid) + .25 0
-				es_delayed 2.6 wcs_setfx health event_var(userid) + 75 0
-				es_delayed 2.6 wcs_setfx gravity event_var(userid) - .1 0		
 				es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 event_var(userid)
 				es_xmath wcs_z1 + 25
 				es_createvectorstring vector1 server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1)
