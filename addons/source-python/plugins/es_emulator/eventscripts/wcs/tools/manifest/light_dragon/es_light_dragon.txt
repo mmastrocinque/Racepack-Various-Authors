@@ -7,7 +7,7 @@ block spawn
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Spawn (START)
+		wcs_log  [Race]: Light Dragon - [Block] Spawn (START)
 	}
 	es wcsgroup set evasion event_var(userid) 0
 	es wcsgroup set evasion_chance event_var(userid) 0
@@ -54,7 +54,7 @@ block spawn
 	es est_effect 10 #a 0 sprites\physring1.vmt server_var(wcs_x1) server_var(wcs_y1) server_var(wcs_z1) 70 80 1 20 0 0 255 255 255 50 100
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Spawn (END)
+		wcs_log  [Race]: Light Dragon - [Block] Spawn (END)
 	}
 }
 
@@ -62,13 +62,13 @@ block onchange
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] OnChange (START)
+		wcs_log  [Race]: Light Dragon - [Block] OnChange (START)
 	}
 	es wcsgroup set evasion server_var(wcs_userid) 0
 	es wcsgroup set evasion_chance server_var(wcs_userid) 0
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] OnChange (END)
+		wcs_log  [Race]: Light Dragon - [Block] OnChange (END)
 	}
 }
 
@@ -76,7 +76,7 @@ block damage
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 1 (START)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 1 (START)
 	}
 	if (server_var(wcs_dice) <= server_var(wcs_chance)) do
 	{
@@ -101,7 +101,7 @@ block damage
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 1 (END)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 1 (END)
 	}
 }
 
@@ -109,13 +109,13 @@ block speed
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 2 (START)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 2 (START)
 	}
 	es wcs_setfx speed event_var(userid) = server_var(wcs_speed) 0
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Light speed - Your speed has been increased
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 2 (END)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 2 (END)
 	}
 }
 
@@ -123,14 +123,14 @@ block evade
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 3 (START)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 3 (START)
 	}
 	es wcsgroup set evasion event_var(userid) 1
 	es wcsgroup set evasion_chance event_var(userid) server_var(wcs_chance)
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Light Evade - Gives you server_var(wcs_chance)% chance to evade incoming attacks
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 3 (END)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 3 (END)
 	}
 }
 
@@ -138,7 +138,7 @@ block shield
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 4 (START)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 4 (START)
 	}
 	if (server_var(wcs_dice4) <= 5) do
 	{
@@ -147,16 +147,25 @@ block shield
 			if (event_var(es_attackerdead) = 0) do
 			{
 				es_xset wcs_execute_ultimate 0
-				es_getplayerteam wcs_team event_var(userid)
-				if (server_var(wcs_team) = 2) do
+				ifx true(wcs_ffa_enabled) do
 				{
-					es_xset wcs_targetteam "#ct,#alive"
-					es_getlivingplayercount wcs_pcount 3
+					es_xset wcs_targetteam "#alive"
+					es_getlivingplayercount wcs_pcount
+					es_set server_var(wcs_userid) server_var(wcs_ffa_userid)
 				}
-				if (server_var(wcs_team) = 3) do
+				ifx false(wcs_ffa_enabled) do
 				{
-					es_xset wcs_targetteam "#t,#alive"
-					es_getlivingplayercount wcs_pcount 2
+					es_getplayerteam wcs_team event_var(userid)
+					if (server_var(wcs_team) = 2) do
+					{
+						es_xset wcs_targetteam "#ct,#alive"
+						es_getlivingplayercount wcs_pcount 3
+					}	
+					if (server_var(wcs_team) = 3) do
+					{
+						es_xset wcs_targetteam "#t,#alive"
+						es_getlivingplayercount wcs_pcount 2
+					}
 				}
 				if (server_var(wcs_targetteam) != 0) do
 				{	
@@ -185,7 +194,7 @@ block shield
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 4 (END)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 4 (END)
 	}
 }
 
@@ -193,32 +202,43 @@ block lightningshield_checks
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 4 (CHECKS START)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 4 (CHECKS START)
 	}
-	es_exists ex userid server_var(wcs_targetid)
-	if (server_var(ex) = 1) do
+	ifx true(wcs_ffa_enabled) do
 	{
-		es getplayerinfo wcs_alive server_var(wcs_targetid) isdead
-		if (server_var(wcs_alive) = 0) do
+		es_xset wcs_execute_ultimate_ffa 1
+		if (server_var(wcs_targetid) != server_var(wcs_ffa_userid)) do
 		{
-			es_xmath wcs_counter + 1
-			if (server_var(wcs_counter) > 0) do
+			es_xset wcs_execute_ultimate_ffa 0
+		}
+	}
+	ifx false(wcs_execute_ultimate_ffa) do
+	{
+		es_exists ex userid server_var(wcs_targetid)
+		if (server_var(ex) = 1) do
+		{
+			es getplayerinfo wcs_alive server_var(wcs_targetid) isdead
+			if (server_var(wcs_alive) = 0) do
 			{
-				if (server_var(wcs_counter) <= server_var(wcs_maxtargets)) do
+				es_xmath wcs_counter + 1
+				if (server_var(wcs_counter) > 0) do
 				{
-					es_xdoblock wcs/tools/manifest/light_dragon/lightningshield_final
-				}
-				else do
-				{
-					es_tell event_var(userid) #multi #green [WCS]: #lightgreen Lightning Shield - Didn't go through as it can't hit that many targets at once!
-					es_xset wcs_ultinotexec 1
+					if (server_var(wcs_counter) <= server_var(wcs_maxtargets)) do
+					{
+						es_xdoblock wcs/tools/manifest/light_dragon/lightningshield_final
+					}
+					else do
+					{
+						es_tell event_var(userid) #multi #green [WCS]: #lightgreen Lightning Shield - Didn't go through as it can't hit that many targets at once!
+						es_xset wcs_ultinotexec 1
+					}
 				}
 			}
-		}
+		}	
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 4 (CHECKS END)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 4 (CHECKS END)
 	}
 }
 
@@ -226,7 +246,7 @@ block lightningshield_final
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 4 (EXECUTED START)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 4 (EXECUTED START)
 	}
 	es_playsound server_var(wcs_targetid) wcs/lightning.mp3 .8
 	es wcs_centertell server_var(wcs_targetid) Lightning Shield struck you for 25 damage
@@ -267,7 +287,7 @@ block lightningshield_final
 	es damage server_var(wcs_targetid) 35 1 event_var(userid)
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 4 (EXECUTED END)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 4 (EXECUTED END)
 	}
 }
 
@@ -275,19 +295,28 @@ block lightning
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 5 (START)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 5 (START)
 	}
 	es_xset wcs_execute_ultimate 0
-	es_getplayerteam wcs_team server_var(wcs_userid)
-	if (server_var(wcs_team) = 2) do
+	ifx true(wcs_ffa_enabled) do
 	{
-		es_xset wcs_targetteam "#ct,#alive"
-		es_getlivingplayercount wcs_pcount 3
+		es_xset wcs_targetteam "#alive"
+		es_getlivingplayercount wcs_pcount
+		es_set server_var(wcs_userid) server_var(wcs_ffa_userid)
 	}
-	if (server_var(wcs_team) = 3) do
+	ifx false(wcs_ffa_enabled) do
 	{
-		es_xset wcs_targetteam "#t,#alive"
-		es_getlivingplayercount wcs_pcount 2
+		es_getplayerteam wcs_team server_var(wcs_userid)
+		if (server_var(wcs_team) = 2) do
+		{
+			es_xset wcs_targetteam "#ct,#alive"
+			es_getlivingplayercount wcs_pcount 3
+		}
+		if (server_var(wcs_team) = 3) do
+		{
+			es_xset wcs_targetteam "#t,#alive"
+			es_getlivingplayercount wcs_pcount 2
+		}
 	}
 	if (server_var(wcs_targetteam) != 0) do
 	{	
@@ -324,7 +353,7 @@ block lightning
 	if (server_var(wcs_ultinotexec) = 1) then es wcs_cancelulti server_var(wcs_userid)
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 5 (END)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 5 (END)
 	}
 }
 
@@ -332,54 +361,65 @@ block ultimate_checks_chain
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 5 (CHECKS START)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 5 (CHECKS START)
 	}
-	es_exists ex userid server_var(wcs_targetid)
-	if (server_var(ex) = 1) do
+	ifx true(wcs_ffa_enabled) do
 	{
-		es getplayerinfo wcs_alive server_var(wcs_targetid) isdead
-		if (server_var(wcs_alive) = 0) do
+		es_xset wcs_execute_ultimate_ffa 1
+		if (server_var(wcs_targetid) != server_var(wcs_ffa_userid)) do
 		{
-			es_xmath wcs_counter + 1
-			if (server_var(wcs_counter) > 0) do
+			es_xset wcs_execute_ultimate_ffa 0
+		}
+	}
+	ifx false(wcs_execute_ultimate_ffa) do
+	{
+		es_exists ex userid server_var(wcs_targetid)
+		if (server_var(ex) = 1) do
+		{
+			es getplayerinfo wcs_alive server_var(wcs_targetid) isdead
+			if (server_var(wcs_alive) = 0) do
 			{
-				if (server_var(wcs_counter) <= 20) do
+				es_xmath wcs_counter + 1
+				if (server_var(wcs_counter) > 0) do
 				{
-					es_set wcs_initial_players_struck server_var(wcs_counter)
-					es wcsgroup get ulti_immunity wcs_tmp server_var(wcs_targetid)
-					if (server_var(wcs_tmp) != 1) do
+					if (server_var(wcs_counter) <= 20) do
 					{
-						es_xset wcs_ultinotexec 0
-						es_xset wcs_execute_ultimate 1
-						es_xmath wcs_count_players_actually_affected + 1
-						es_xdoblock wcs/tools/manifest/light_dragon/ultimate_final_chain
+						es_set wcs_initial_players_struck server_var(wcs_counter)
+						es wcsgroup get ulti_immunity wcs_tmp server_var(wcs_targetid)
+						if (server_var(wcs_tmp) != 1) do
+						{
+							es_xset wcs_ultinotexec 0
+							es_xset wcs_execute_ultimate 1
+							es_xmath wcs_count_players_actually_affected + 1
+							es_xdoblock wcs/tools/manifest/light_dragon/ultimate_final_chain
+						}
+						if (server_var(wcs_tmp) == 1) do
+						{
+							es_xmath wcs_count_players_ultimate_immunity + 1
+							if (server_var(wcs_count_players_ultimate_immunity) != server_var(wcs_initial_players_struck)) do
+							{
+								es_tell server_var(wcs_targetid) #multi #green [WCS]: #lightgreen Ultimate immunity - You blocked an enemy's ultimate
+								es_tell server_var(wcs_userid) #multi #green [WCS]: #lightgreen Ultimate - server_var(wcs_count_players_ultimate_immunity) enemies were immune to your ultimate!
+							}
+							if (server_var(wcs_count_players_ultimate_immunity) == server_var(wcs_initial_players_struck)) do
+							{
+								es_tell server_var(wcs_userid) #multi #green [WCS]: #lightgreen Ultimate - Failed, all nearby enemy targets were immune!
+								es_xset wcs_ultinotexec 1
+							}
+						}
 					}
-					if (server_var(wcs_tmp) == 1) do
+					else do
 					{
-						es_xmath wcs_count_players_ultimate_immunity + 1
-						if (server_var(wcs_count_players_ultimate_immunity) != server_var(wcs_initial_players_struck)) do
-						{
-							es_tell server_var(wcs_targetid) #multi #green [WCS]: #lightgreen Ultimate immunity - You blocked an enemy's ultimate
-							es_tell server_var(wcs_userid) #multi #green [WCS]: #lightgreen Ultimate - server_var(wcs_count_players_ultimate_immunity) enemies were immune to your ultimate!
-						}
-						if (server_var(wcs_count_players_ultimate_immunity) == server_var(wcs_initial_players_struck)) do
-						{
-							es_tell server_var(wcs_userid) #multi #green [WCS]: #lightgreen Ultimate - Failed, all nearby enemy targets were immune!
-							es_xset wcs_ultinotexec 1
-						}
+						es_tell server_var(wcs_userid) #multi #green [WCS]: #lightgreen Ultimate - Failed, you can't hit that many targets at once!
+						es_xset wcs_ultinotexec 1
 					}
-				}
-				else do
-				{
-					es_tell server_var(wcs_userid) #multi #green [WCS]: #lightgreen Ultimate - Failed, you can't hit that many targets at once!
-					es_xset wcs_ultinotexec 1
 				}
 			}
-		}
+		}	
 	}
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 5 (CHECKS END)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 5 (CHECKS END)
 	}
 }
 
@@ -387,7 +427,7 @@ block ultimate_final_chain
 {
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 5 (EXECUTED START)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 5 (EXECUTED START)
 	}
 	es_playsound server_var(wcs_targetid) wcs/lightning.mp3 .8
 	es wcs_centertell server_var(wcs_targetid) You've been struck by a chain lightning
@@ -434,6 +474,6 @@ block ultimate_final_chain
 	es damage server_var(wcs_targetid) 35 1 server_var(wcs_userid)
 	ifx true(wcs_race_debugging) do
 	{
-		wcs_log  [Race]: Undead Scourge - [Block] Skill: 5 (EXECUTED END)
+		wcs_log  [Race]: Light Dragon - [Block] Skill: 5 (EXECUTED END)
 	}
 }
