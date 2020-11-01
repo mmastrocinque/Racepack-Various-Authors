@@ -15,7 +15,7 @@ block speed
 		es_xmath wcs_speed * 100
 		es_xmath wcs_speed - 100
 		es_tell event_var(userid) #multi #green [WCS]: #lightgreen sain bolt speed - Increased your speed by server_var(wcs_speed)%
-		es_playsound event_var(userid) wcs/speed.wav .7
+		es_playsound event_var(userid) wcs/speed.mp3 .7
 		es est_effect 10 #a 0 sprites/cbbl_smoke.vmt 50 0 900 10 1400 2 60 10 1.8 51 234 249 200 2
 		es est_effect 10 #a 0 sprites/cbbl_smoke.vmt 100 0 900 10 1400 2 60 10 5 232 68 194 200 2
 		es est_effect 10 #a 0 sprites/cbbl_smoke.vmt 150 0 900 10 1400 2 60 10 5 63 237 115 200 2

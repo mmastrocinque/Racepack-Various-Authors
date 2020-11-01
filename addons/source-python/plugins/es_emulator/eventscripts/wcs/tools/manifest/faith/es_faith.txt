@@ -55,7 +55,7 @@ block speed_when_struck
 			{
 				es wcs_setfx speed event_var(userid) + server_var(wcs_speed) 2
 				es wcs_centertell event_var(userid) You run faster for 2 seconds!
-				es_playsound event_var(userid) wcs/speed.wav .8
+				es_playsound event_var(userid) wcs/speed.mp3 .8
 				es_getplayerlocation wcs_x2 wcs_y2 wcs_z2 event_var(userid)
 				es_xmath wcs_z2 + 5
 				es est_effect 10 #a 0 sprites/cbbl_smoke.vmt server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 180 40 .8 14 10 0 249 225 57 200 2
@@ -137,7 +137,7 @@ block speed_temporary
 	}
 	es wcs_setfx speed server_var(wcs_userid) + .65 7
 	es wcs_centertell server_var(wcs_userid) You're running faster for 7 seconds!
-	es_playsound server_var(wcs_userid) wcs/speed.wav 1
+	es_playsound server_var(wcs_userid) wcs/speed.mp3 1
 	es_getplayerlocation wcs_x2 wcs_y2 wcs_z2 server_var(wcs_userid)
 	es_xmath wcs_z2 + 5
 	es est_effect 10 #a 0 sprites/cbbl_smoke.vmt server_var(wcs_x2) server_var(wcs_y2) server_var(wcs_z2) 180 40 .8 14 10 0 249 225 57 200 2

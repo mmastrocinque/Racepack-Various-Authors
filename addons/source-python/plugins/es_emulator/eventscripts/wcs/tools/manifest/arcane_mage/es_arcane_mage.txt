@@ -97,7 +97,7 @@ block revive
 				es wcsgroup set arcanepower event_var(userid) server_var(wcs_blue)
 				es_tell event_var(userid) #multi #green [WCS]: #lightgreen Redemption - You'll revive in your spawn in 2 seconds!
 				es wcs_centertell event_var(userid) You'll be revived in your spawn in 2 seconds
-				es_delayed 2 es_emitsound player event_var(userid) wcs/resurrect.wav 1.0 0.3
+				es_delayed 2 es_emitsound player event_var(userid) wcs/resurrect.mp3 1.0 0.3
 				es_delayed 2 wcs_spawn event_var(userid) 1
 				es_getplayerlocation wcs_x1 wcs_y1 wcs_z1 event_var(userid)
 				es_xmath wcs_z1 + 25
