@@ -21,7 +21,7 @@ block spawn
 		es wcs_restrict event_var(userid) "glock;usp_silencer;p250;hkp2000;elite;fiveseven;revolver;tec9;taser;sawedoff;nova;xm1014;mag7;p90;cz75a;mp9;mp7;bizon;mac10;ump45;m4a1;m4a1_silencer;galilar;ak47;aug;famas;g3sg1;scar20;awp;sg556;ssg08;m249;negev"
 	}
 	es wcs_setfx speed event_var(userid) = 0.9 0
-	es wcs_setfx health event_var(userid) 75 0
+	es wcs_setfx health event_var(userid) = 75 0
 	es_delayed .1 es_give event_var(userid) weapon_knife
 	es_delayed .1 es_give event_var(userid) weapon_deagle
 	es_tell event_var(userid) #multi #green [WCS]: #lightgreen Franklin Thanatos - You received your golden deagle.
@@ -77,19 +77,21 @@ block medalofhonor
 		}
 		ifx false(wcs_ffa_enabled) do
 		{
-		es wcsgroup get has_used_phoenix wcs_tmp3 event_var(userid)
-		if (server_var(wcs_tmp3) == 0) do
-		{
-			es wcsgroup set has_used_phoenix event_var(userid) 1
-			if (server_var(wcs_dice) <= server_var(wcs_chance)) do
+			es wcsgroup get has_used_phoenix wcs_tmp3 event_var(userid)
+		
+			if (server_var(wcs_tmp3) == 0) do
 			{
-				if (event_var(es_userteam) = 2) then es_xset wcs_team #t
-				if (event_var(es_userteam) = 3) then es_xset wcs_team #ct
-				es wcsgroup get phoenix wcs_phoenix server_var(wcs_team)
-				es_xmath wcs_phoenix + 1
-				es wcsgroup set phoenix server_var(wcs_team) server_var(wcs_phoenix)
-				es_tell event_var(userid) #multi #green [WCS]: #lightgreen Medal of Honor - The first from your team to die will be revived
-				es wcsgroup set medalofhonor event_var(userid) 1
+				es wcsgroup set has_used_phoenix event_var(userid) 1
+				if (server_var(wcs_dice) <= server_var(wcs_chance)) do
+				{
+					if (event_var(es_userteam) = 2) then es_xset wcs_team #t
+					if (event_var(es_userteam) = 3) then es_xset wcs_team #ct
+					es wcsgroup get phoenix wcs_phoenix server_var(wcs_team)
+					es_xmath wcs_phoenix + 1
+					es wcsgroup set phoenix server_var(wcs_team) server_var(wcs_phoenix)
+					es_tell event_var(userid) #multi #green [WCS]: #lightgreen Medal of Honor - The first from your team to die will be revived
+					es wcsgroup set medalofhonor event_var(userid) 1
+				}
 			}
 		}
 	}
